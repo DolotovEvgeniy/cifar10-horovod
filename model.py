@@ -8,11 +8,11 @@ def model_fn(features, labels, mode, params):
     pool1 = tf.layers.max_pooling2d(inputs=conv1, pool_size=[2, 2], strides=2)
     conv2 = tf.layers.conv2d(inputs=pool1, filters=32, kernel_size=[3, 3], padding='same', activation=tf.nn.relu)
     pool2 = tf.layers.max_pooling2d(inputs=conv2, pool_size=[2, 2], strides=2)
-    flatten = tf.reshape(pool2, [-1, 2048])
+    flatten = tf.reshape(tensor=pool2, shape=[-1, 2048])
     dense = tf.layers.dense(inputs=flatten, units=128, activation=tf.nn.relu)
     logits = tf.layers.dense(inputs=dense, units=10)
 
-    predictions = tf.argmax(input=logits,axis=1)
+    predictions = tf.argmax(input=logits, axis=1)
 
     loss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(labels=labels, logits=logits))
 
