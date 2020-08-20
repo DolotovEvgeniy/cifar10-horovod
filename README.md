@@ -4,7 +4,7 @@
 1. [Install Docker](https://www.docker.com/get-started)
 2. Build image:
 ```
-docker build -t horovod:latest horovod-docker-cpu
+docker build -t horovod:latest docker
 ```
 3. Run container:
 ```
