@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
 
-ENV TENSORFLOW_VERSION=2.3.0
+ENV TENSORFLOW_VERSION=1.15.0
 
 # Python 3.6 is supported by Ubuntu Bionic out of the box
 ARG python=3.6
