@@ -6,10 +6,6 @@ import horovod.tensorflow as hvd
 import cifar10
 from model import model_fn
 
-
-tf.get_logger().propagate = False
-
-
 def is_chief():
     return hvd.rank() == 0
 
@@ -60,7 +56,8 @@ def main(_):
                                                  num_epochs=1,
                                                  shuffle=False)
 
-    for _ in range(args.num_epochs):
+    for epoch in range(args.num_epochs):
+        print('Epoch: {}'.format(epoch))
         estimator.train(input_fn=train_fn, hooks=hooks)
 
     if is_chief():
