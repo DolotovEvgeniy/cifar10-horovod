@@ -16,3 +16,5 @@ docker run -it horovod:latest
 horovodrun -np 3 python train.py --num_epochs=3 --batch-size=20 --lr=0.001 |& grep -v "Read -1"
 ```
 
+## Experiments:
+Accuracy after 3 epochs: 68%
